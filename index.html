@@ -5,17 +5,23 @@
 <style type="text/css">
 
 h1 {
-  font-size: 90px;
+  font-size: 120px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
+  -1px 1px 0 #000, 1px 1px 0 #000; color: white;
+}
+
+h2 {
+  font-size: 200px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
   -1px 1px 0 #000, 1px 1px 0 #000; color: white;
 }
 
 button {
-  background-color: #fbeee0;
+  background-color: white;
   border: 2px solid #422800;
   border-radius: 30px;
   box-shadow: #422800 4px 4px 0 0;
-  color: #422800;
+  color: blue;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
@@ -27,7 +33,6 @@ button {
 body {
 
 background-color: #e5e5f7;
-opacity: 0.8;
 background-image:  radial-gradient(#444cf7 1.55px, transparent 1.55px), radial-gradient(#444cf7 1.55px, #e5e5f7 1.55px);
 background-size: 62px 62px;
 background-position: 0 0,31px 31px;
@@ -44,8 +49,8 @@ background-position: 0 0,31px 31px;
 <br>
 <h1 id="challengeH1">gbngbnb</h1>
 <br>
-<h1 id="timerH1"> 30.0 </h1>
-<br><br>
+<h2 id="timerH1"> 30.0 </h1>
+<br>
 <button onclick="startCountdown()">►</button>
 <button onclick="window.location.reload()">⟳</button>
 
@@ -61,7 +66,12 @@ let challengeTable = [
 ["Name __ colors",10],
 ["Name __ emotions",30],
 ["Name __ colleges or universities",10],
-["Name __ clothing brands",15]
+["Name __ clothing brands",15],
+["Name __ things that can float",10],
+["Name __ school subjects",30],
+["Name __ countries that start with A",15],
+["Name __ of your family members names", 15],
+["Name __ fruits", 10]
 ];
 
 let challengeId =0;
@@ -95,6 +105,25 @@ if (timerRunning)
   dd = new Date();
   diff = (grad.getTime() - dd.getTime() ) /1000;
     document.getElementById("timerH1").innerHTML = String(diff.toFixed(2));
+    if(diff <= 0)
+    {
+      timerRunning = false;
+  document.getElementById("timerH1").innerHTML = challengeTable [challengeId][1];
+      aud.play(); 
+   }
+}
+}
+
+
+setInterval (checkTime, 75);
+
+</script>
+
+</div>
+
+</body>
+
+</html>    document.getElementById("timerH1").innerHTML = String(diff.toFixed(2));
     if(diff <= 0)
     {
       timerRunning = false;
