@@ -1,8 +1,47 @@
 <html>
 
+<head>
+
+<style type="text/css">
+
+h1 {
+  font-size: 30px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
+  -1px 1px 0 #000, 1px 1px 0 #000; color: white;
+}
+
+button {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 100px;
+  text-align: center;
+  text-decoration: none;
+}
+
+body {
+
+background-color: #e5e5f7;
+background-image:  linear-gradient(135deg, #444cf7 25%, transparent 25%), linear-gradient(225deg, #444cf7 25%, transparent 25%), linear-gradient(45deg, #444cf7 25%, transparent 25%), linear-gradient(315deg, #444cf7 25%, #e5e5f7 25%);
+background-position:  40px 0, 40px 0, 0 0, 0 0;
+background-size: 80px 80px;
+background-repeat: repeat;
+
+}
+
+</style>
+
+</head>
+
 <body>
 
 <div style="text-align: center;">
+<br>
 <h1 id="challengeH1">gbngbnb</h1>
 <br>
 <h1 id="timerH1"> 30.0 </h1>
@@ -14,10 +53,19 @@
 
 let challengeTable = [
 ["Name __ colors",10],
-["Name __ foods eaten raw",15]
+["Name __ foods eaten raw",15],
+["Name __ flavors of ice cream",10],
+["Name __ different languages",10],
+["Name __ things you rent",30],
+["Name __ condiments",15],
+["Name __ colors",10],
+["Name __ emotions",30],
+["Name __ colleges or universities",10],
+["Name __ clothing brands",15]
 ];
 
 let challengeId =0;
+challengeId = Math.floor(Math.random() * challengeTable.length);
 let timerRunning = false;
 let currentText = "";
 let currentTimer = 30.0;
@@ -50,7 +98,7 @@ if (timerRunning)
     if(diff <= 0)
     {
       timerRunning = false;
-      document.getElementById("timerH1").innerHTML = "0.000";
+  document.getElementById("timerH1").innerHTML = challengeTable [challengeId][1];
       aud.play(); 
    }
 }
