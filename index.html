@@ -71,7 +71,22 @@ let challengeTable = [
 ["Name __ school subjects",30],
 ["Name __ countries that start with A",15],
 ["Name __ of your family members names", 15],
-["Name __ fruits", 10]
+["Name __ fruits", 10],
+["Name __ rooms in a house", 10],
+["Name __ bugs", 15],
+["Name __ sports", 15],
+["Name __ currencies", 30],
+["Name __ things you would call your mother", 10],
+["Name __ gems", 10],
+["Name __ things you would find on a plane", 10],
+["Name __ Disney villains", 10],
+["Name __ breakfast foods", 15],
+["Name __ desserts", 10],
+["Name __ things you do in a bathroom", 15],
+["Name __ cryptids", 15],
+["Name __ birds", 10],
+["Name __ Pokemon", 15],
+["Name __ hairstyles", 10]
 ];
 
 let challengeId =0;
@@ -84,7 +99,7 @@ let diff = 0;
 const aud = new Audio("https://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/explosion%2001.wav");
 
 document.getElementById("challengeH1").innerHTML = challengeTable [challengeId][0] + " in";
-  document.getElementById("timerH1").innerHTML = challengeTable [challengeId][1];
+  document.getElementById("timerH1").innerHTML = challengeTable [challengeId][1] + " s";
  
 
 
@@ -95,6 +110,35 @@ function startCountdown () {
   grad = new Date(dd.getTime() + (challengeTable [challengeId][1])*1000);
   checkTime ();
   
+}
+
+function checkTime()
+{
+if (timerRunning)
+{
+
+  dd = new Date();
+  diff = (grad.getTime() - dd.getTime() ) /1000;
+    document.getElementById("timerH1").innerHTML = String(diff.toFixed(2)) + " s";
+    if(diff <= 0)
+    {
+      timerRunning = false;
+  document.getElementById("timerH1").innerHTML = challengeTable [challengeId][1] + " s";
+      aud.play(); 
+   }
+}
+}
+
+
+setInterval (checkTime, 75);
+
+</script>
+
+</div>
+
+</body>
+
+</html>  
 }
 
 function checkTime()
