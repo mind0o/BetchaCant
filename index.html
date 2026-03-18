@@ -2,16 +2,16 @@
 
 <head>
 
-<style type="text/css">
+<style>
 
 h1 {
-  font-size: 120px;
+  font-size: 90px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
   -1px 1px 0 #000, 1px 1px 0 #000; color: white;
 }
 
 h2 {
-  font-size: 200px;
+  font-size: 170px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
   -1px 1px 0 #000, 1px 1px 0 #000; color: white;
 }
@@ -54,7 +54,7 @@ background-position: 0 0,31px 31px;
 <button onclick="startCountdown()">►</button>
 <button onclick="window.location.reload()">⟳</button>
 
-<script type="text/javascript">
+<script>
 
 let challengeTable = [
 ["Name __ colors",10],
@@ -105,25 +105,6 @@ if (timerRunning)
   dd = new Date();
   diff = (grad.getTime() - dd.getTime() ) /1000;
     document.getElementById("timerH1").innerHTML = String(diff.toFixed(2));
-    if(diff <= 0)
-    {
-      timerRunning = false;
-  document.getElementById("timerH1").innerHTML = challengeTable [challengeId][1];
-      aud.play(); 
-   }
-}
-}
-
-
-setInterval (checkTime, 75);
-
-</script>
-
-</div>
-
-</body>
-
-</html>    document.getElementById("timerH1").innerHTML = String(diff.toFixed(2));
     if(diff <= 0)
     {
       timerRunning = false;
