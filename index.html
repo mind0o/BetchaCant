@@ -1,0 +1,68 @@
+<html>
+
+<body>
+
+<div style="text-align: center;">
+<h1 id="challengeH1">gbngbnb</h1>
+<br>
+<h1 id="timerH1"> 30.0 </h1>
+<br><br>
+<button onclick="startCountdown()">►</button>
+<button onclick="window.location.reload()">⟳</button>
+
+<script type="text/javascript">
+
+let challengeTable = [
+["Name __ colors",10],
+["Name __ foods eaten raw",15]
+];
+
+let challengeId =0;
+let timerRunning = false;
+let currentText = "";
+let currentTimer = 30.0;
+let grad = new Date(2065, 3, 16, 17, 0, 0, 0, 0);
+let diff = 0;
+const aud = new Audio("https://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/explosion%2001.wav");
+
+document.getElementById("challengeH1").innerHTML = challengeTable [challengeId][0] + " in";
+  document.getElementById("timerH1").innerHTML = challengeTable [challengeId][1];
+ 
+
+
+function startCountdown () {
+
+  timerRunning = true;
+  dd = new Date();
+  grad = new Date(dd.getTime() + (challengeTable [challengeId][1])*1000);
+  checkTime ();
+  
+}
+
+function checkTime()
+{
+if (timerRunning)
+{
+
+  dd = new Date();
+  diff = (grad.getTime() - dd.getTime() ) /1000;
+    document.getElementById("timerH1").innerHTML = String(diff.toFixed(2));
+    if(diff <= 0)
+    {
+      timerRunning = false;
+      document.getElementById("timerH1").innerHTML = "0.000";
+      aud.play(); 
+   }
+}
+}
+
+
+setInterval (checkTime, 75);
+
+</script>
+
+</div>
+
+</body>
+
+</html>
